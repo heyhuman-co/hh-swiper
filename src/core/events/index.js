@@ -12,7 +12,7 @@ let dummyEventAttached = false;
 function dummyEventListener() {}
 
 const events = (swiper, method) => {
-  const document = getDocument();
+  const document = getIframeDocument();
   const { params, el, wrapperEl, device } = swiper;
   const capture = !!params.nested;
   const domMethod = method === 'on' ? 'addEventListener' : 'removeEventListener';
@@ -53,7 +53,7 @@ const events = (swiper, method) => {
 
 function attachEvents() {
   const swiper = this;
-  const document = getDocument();
+  const document = getIframeDocument();
   const { params } = swiper;
 
   swiper.onTouchStart = onTouchStart.bind(swiper);
@@ -78,6 +78,11 @@ function attachEvents() {
 function detachEvents() {
   const swiper = this;
   events(swiper, 'off');
+}
+
+function getIframeDocument(){
+  //TODO make this more robust/error proof
+  return window.parent.document.getElementsByTagName('iframe')[0].contentWindow.document;
 }
 
 export default {
