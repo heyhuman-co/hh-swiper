@@ -81,8 +81,14 @@ function detachEvents() {
 }
 
 function getIframeDocument(){
-  //TODO make this more robust/error proof
-  return window.parent.document.getElementsByTagName('iframe')[0].contentWindow.document;
+  var iframeDocument =  window.parent.document.querySelector('[id^="heyhuman_iframe-"]').id;.contentWindow.document;
+  if(iframeDocument){
+    return iframeDocument;
+  }
+  else{
+    console.error("No iframe document found for heyhuman_iframe to attach hh-swiper touchevents");
+    return getDocument();
+  }
 }
 
 export default {
