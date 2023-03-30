@@ -13,7 +13,7 @@ let dummyEventAttached = false;
 function dummyEventListener() {}
 
 function getIframeDocument(){
-  const iframeDocument = window.parent.document.querySelector('[id^="heyhuman_iframe-"]').id
+  const iframeDocument = window.parent.document.querySelector('[id^="heyhuman_iframe-"]')
     .contentWindow.document;
   if (iframeDocument) {
     return iframeDocument;
