@@ -1,5 +1,5 @@
 /**
- * Swiper 9.1.1-1
+ * Swiper 9.1.1-2
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -2902,7 +2902,7 @@
     let dummyEventAttached = false;
     function dummyEventListener() {}
     function getIframeDocument() {
-      const iframeDocument = window.parent.document.querySelector('[id^="heyhuman_iframe-"]').id.contentWindow.document;
+      const iframeDocument = window.parent.document.querySelector('[id^="heyhuman_iframe-"]').contentWindow.document;
       if (iframeDocument) {
         return iframeDocument;
       } else {

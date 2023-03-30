@@ -1,5 +1,5 @@
 /**
- * Swiper 9.1.1-1
+ * Swiper 9.1.1-2
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *

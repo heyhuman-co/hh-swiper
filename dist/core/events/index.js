@@ -10,7 +10,7 @@ import onLoad from './onLoad.js';
 let dummyEventAttached = false;
 function dummyEventListener() {}
 function getIframeDocument() {
-  const iframeDocument = window.parent.document.querySelector('[id^="heyhuman_iframe-"]').id.contentWindow.document;
+  const iframeDocument = window.parent.document.querySelector('[id^="heyhuman_iframe-"]').contentWindow.document;
   if (iframeDocument) {
     return iframeDocument;
   } else {
