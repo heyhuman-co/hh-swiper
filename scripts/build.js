@@ -5,7 +5,6 @@ import buildJsCore from './build-js-core.js';
 import buildJsBundle from './build-js-bundle.js';
 import buildTypes from './build-types.js';
 import buildReact from './build-react.js';
-import buildVue from './build-vue.js';
 import buildElement from './build-element.js';
 import buildStyles from './build-styles.js';
 import { outputDir } from './utils/output-dir.js';
@@ -53,7 +52,6 @@ class Build {
     .add('bundle', buildJsBundle)
     .add('element', buildElement)
     .add('react', buildReact)
-    .add('vue', buildVue)
     .run();
   elapsed.end('build', chalk.bold.green('Build completed'));
 })();

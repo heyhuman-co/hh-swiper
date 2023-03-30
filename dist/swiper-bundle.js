@@ -1,5 +1,5 @@
 /**
- * Swiper 9.1.1
+ * Swiper 9.1.1-1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: March 28, 2023
+ * Released on: March 30, 2023
  */
 
 (function (global, factory) {
@@ -2898,8 +2898,18 @@
       swiper.update();
     }
 
+    /* eslint-disable no-else-return */
     let dummyEventAttached = false;
     function dummyEventListener() {}
+    function getIframeDocument() {
+      const iframeDocument = window.parent.document.querySelector('[id^="heyhuman_iframe-"]').id.contentWindow.document;
+      if (iframeDocument) {
+        return iframeDocument;
+      } else {
+        console.error('No iframe document found for heyhuman_iframe to attach hh-swiper touchevents');
+        return getDocument();
+      }
+    }
     const events = (swiper, method) => {
       const document = getIframeDocument();
       const {
@@ -2976,10 +2986,6 @@
     function detachEvents() {
       const swiper = this;
       events(swiper, 'off');
-    }
-    function getIframeDocument() {
-      //TODO make this more robust/error proof
-      return window.parent.document.getElementsByTagName('iframe')[0].contentWindow.document;
     }
     var events$1 = {
       attachEvents,

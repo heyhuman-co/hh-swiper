@@ -1,5 +1,5 @@
 /**
- * Swiper Custom Element 9.1.1
+ * Swiper Custom Element 9.1.1-1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: March 28, 2023
+ * Released on: March 30, 2023
  */
 
 /* eslint-disable spaced-comment */

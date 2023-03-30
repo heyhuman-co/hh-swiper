@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 import { getDocument } from 'ssr-window';
 
 import onTouchStart from './onTouchStart.js';
@@ -10,6 +11,17 @@ import onLoad from './onLoad.js';
 
 let dummyEventAttached = false;
 function dummyEventListener() {}
+
+function getIframeDocument(){
+  const iframeDocument = window.parent.document.querySelector('[id^="heyhuman_iframe-"]').id
+    .contentWindow.document;
+  if (iframeDocument) {
+    return iframeDocument;
+  } else {
+    console.error('No iframe document found for heyhuman_iframe to attach hh-swiper touchevents');
+    return getDocument();
+  }
+}
 
 const events = (swiper, method) => {
   const document = getIframeDocument();
@@ -78,17 +90,6 @@ function attachEvents() {
 function detachEvents() {
   const swiper = this;
   events(swiper, 'off');
-}
-
-function getIframeDocument(){
-  var iframeDocument =  window.parent.document.querySelector('[id^="heyhuman_iframe-"]').id;.contentWindow.document;
-  if(iframeDocument){
-    return iframeDocument;
-  }
-  else{
-    console.error("No iframe document found for heyhuman_iframe to attach hh-swiper touchevents");
-    return getDocument();
-  }
 }
 
 export default {
