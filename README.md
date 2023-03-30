@@ -1,5 +1,5 @@
 <p>HH Note: When changing code, make sure to checkout the hh-swiper, and `$ npm run build:prod ` to update the dist folder, then commit the changes from dist and your original code change.</p>
-
+<p>Make sure to clear swiper from your yarn.lock or delete yarn.lock then yarn install to get changes from here</p>
 
 <p align="center">
   <img src="https://swiperjs.com/images/share-banner-3.png"/>
