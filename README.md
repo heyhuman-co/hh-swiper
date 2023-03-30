@@ -1,3 +1,6 @@
+<p>HH Note: When changing code, make sure to checkout the hh-swiper, and npm run build:production</p>
+
+
 <p align="center">
   <img src="https://swiperjs.com/images/share-banner-3.png"/>
 </p>
