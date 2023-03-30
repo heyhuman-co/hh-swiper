@@ -1,4 +1,4 @@
-<p>HH Note: When changing code, make sure to checkout the hh-swiper, and npm run build:production</p>
+<p>HH Note: When changing code, make sure to checkout the hh-swiper, and `$ npm run build:prod ` to update the dist folder, then commit the changes from dist and your original code change.</p>
 
 
 <p align="center">
