@@ -11,8 +11,19 @@ import onLoad from './onLoad.mjs';
 let dummyEventAttached = false;
 function dummyEventListener() {}
 
+function getIframeDocument(){
+  const iframeDocument = window.parent.document.querySelector('[id^="heyhuman_iframe-"]')
+    .contentWindow.document;
+  if (iframeDocument) {
+    return iframeDocument;
+  } else {
+    console.error('No iframe document found for heyhuman_iframe to attach hh-swiper touchevents');
+    return getDocument();
+  }
+}
+
 const events = (swiper, method) => {
-  const document = getDocument();
+  const document = getIframeDocument();
   const { params, el, wrapperEl, device } = swiper;
   const capture = !!params.nested;
   const domMethod = method === 'on' ? 'addEventListener' : 'removeEventListener';
@@ -54,7 +65,7 @@ const events = (swiper, method) => {
 
 function attachEvents() {
   const swiper = this;
-  const document = getDocument();
+  const document = getIframeDocument();
   const { params } = swiper;
 
   swiper.onTouchStart = onTouchStart.bind(swiper);
