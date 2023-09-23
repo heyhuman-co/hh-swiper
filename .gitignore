@@ -2,10 +2,13 @@
 node_modules
 custom
 *.log
+.vscode
+.nova
 
 .versions
 .idea
-dist
+src
+scripts
 
 
 # local env files
