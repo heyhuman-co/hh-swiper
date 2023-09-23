@@ -1,2 +1,11 @@
-<p>HH Note: When changing code, make sure to checkout the hh-swiper, and `$ npm run build:prod ` to update the dist folder, then commit the changes from dist and your original code change.</p>
-<p>Make sure to clear swiper from your yarn.lock or delete yarn.lock then yarn install to get changes from here</p>
+Swiper
+==========
+
+Swiper - is the free and most modern mobile touch slider with hardware accelerated transitions and amazing native behavior. It is intended to be used in mobile websites, mobile web apps, and mobile native/hybrid apps.
+
+Swiper is not compatible with all platforms, it is a modern touch slider which is focused only on modern apps/platforms to bring the best experience and simplicity.
+
+# Getting Started
+  * [Getting Started Guide](https://swiperjs.com/get-started/)
+  * [API](https://swiperjs.com/swiper-api/)
+  * [Demos](https://swiperjs.com/demos/)

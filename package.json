@@ -1,27 +1,166 @@
 {
-  "name": "swiper-src",
+  "name": "swiper",
   "version": "10.3.0-1",
   "description": "Most modern mobile touch slider and framework with hardware accelerated transitions",
+  "typings": "swiper.d.ts",
   "type": "module",
-  "scripts": {
-    "build": "node scripts/build",
-    "build:prod": "node scripts/build --prod",
-    "build-icons-font": "python ./scripts/icon-font/generate.py",
-    "watch": "node scripts/watch",
-    "demos": "npm run build && concurrently --kill-others \"vite ./demos/\" \"npm run watch\" ",
-    "core": "npm run build && concurrently --kill-others \"vite ./playground/core\" \"npm run watch\" ",
-    "element": "npm run build && concurrently --kill-others \"vite ./playground/element\" \"npm run watch\" ",
-    "react": "npm run build && concurrently --kill-others \"vite ./playground/react\" \"npm run watch\"",
-    "vue": "npm run build && concurrently --kill-others \"vite ./playground/vue\" \"npm run watch\"",
-    "prettier": "prettier \"**/*.+(js|json|scss|css|less|ts|jsx)\"",
-    "format": "npm run prettier -- --write",
-    "check-format": "npm run prettier -- --list-different",
-    "lint": "eslint --ext .js,.jsx .",
-    "validate": "npm-run-all --parallel check-format lint",
-    "release": "npm run validate && node ./scripts/release",
-    "test": "npm run validate && npm run build:prod",
-    "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -u -s",
-    "build-sponsors": "node scripts/build-sponsors.js"
+  "main": "./swiper.mjs",
+  "module": "./swiper.mjs",
+  "exports": {
+    ".": {
+      "types": "./swiper.d.ts",
+      "default": "./swiper.mjs"
+    },
+    "./core": {
+      "types": "./swiper.d.ts",
+      "default": "./swiper.mjs"
+    },
+    "./bundle": {
+      "types": "./swiper.d.ts",
+      "default": "./swiper-bundle.mjs"
+    },
+    "./css": "./swiper.css",
+    "./css/bundle": "./swiper-bundle.css",
+    "./swiper-bundle.css": "./swiper-bundle.css",
+    "./css/a11y": "./modules/a11y.css",
+    "./css/autoplay": "./modules/autoplay.css",
+    "./css/controller": "./modules/controller.css",
+    "./css/effect-coverflow": "./modules/effect-coverflow.css",
+    "./css/effect-cube": "./modules/effect-cube.css",
+    "./css/effect-fade": "./modules/effect-fade.css",
+    "./css/effect-flip": "./modules/effect-flip.css",
+    "./css/effect-creative": "./modules/effect-creative.css",
+    "./css/effect-cards": "./modules/effect-cards.css",
+    "./css/free-mode": "./modules/free-mode.css",
+    "./css/grid": "./modules/grid.css",
+    "./css/hash-navigation": "./modules/hash-navigation.css",
+    "./css/history": "./modules/history.css",
+    "./css/keyboard": "./modules/keyboard.css",
+    "./css/manipulation": "./modules/manipulation.css",
+    "./css/mousewheel": "./modules/mousewheel.css",
+    "./css/navigation": "./modules/navigation.css",
+    "./css/pagination": "./modules/pagination.css",
+    "./css/parallax": "./modules/parallax.css",
+    "./css/scrollbar": "./modules/scrollbar.css",
+    "./css/thumbs": "./modules/thumbs.css",
+    "./css/virtual": "./modules/virtual.css",
+    "./css/zoom": "./modules/zoom.css",
+    "./less": "./swiper.less",
+    "./less/a11y": "./modules/a11y.less",
+    "./less/autoplay": "./modules/autoplay.less",
+    "./less/controller": "./modules/controller.less",
+    "./less/effect-coverflow": "./modules/effect-coverflow.less",
+    "./less/effect-cube": "./modules/effect-cube.less",
+    "./less/effect-fade": "./modules/effect-fade.less",
+    "./less/effect-flip": "./modules/effect-flip.less",
+    "./less/effect-creative": "./modules/effect-creative.less",
+    "./less/effect-cards": "./modules/effect-cards.less",
+    "./less/free-mode": "./modules/free-mode.less",
+    "./less/grid": "./modules/grid.less",
+    "./less/hash-navigation": "./modules/hash-navigation.less",
+    "./less/history": "./modules/history.less",
+    "./less/keyboard": "./modules/keyboard.less",
+    "./less/manipulation": "./modules/manipulation.less",
+    "./less/mousewheel": "./modules/mousewheel.less",
+    "./less/navigation": "./modules/navigation.less",
+    "./less/pagination": "./modules/pagination.less",
+    "./less/parallax": "./modules/parallax.less",
+    "./less/scrollbar": "./modules/scrollbar.less",
+    "./less/thumbs": "./modules/thumbs.less",
+    "./less/virtual": "./modules/virtual.less",
+    "./less/zoom": "./modules/zoom.less",
+    "./scss": "./swiper.scss",
+    "./scss/a11y": "./modules/a11y.scss",
+    "./scss/autoplay": "./modules/autoplay.scss",
+    "./scss/controller": "./modules/controller.scss",
+    "./scss/effect-coverflow": "./modules/effect-coverflow.scss",
+    "./scss/effect-cube": "./modules/effect-cube.scss",
+    "./scss/effect-fade": "./modules/effect-fade.scss",
+    "./scss/effect-flip": "./modules/effect-flip.scss",
+    "./scss/effect-creative": "./modules/effect-creative.scss",
+    "./scss/effect-cards": "./modules/effect-cards.scss",
+    "./scss/free-mode": "./modules/free-mode.scss",
+    "./scss/grid": "./modules/grid.scss",
+    "./scss/hash-navigation": "./modules/hash-navigation.scss",
+    "./scss/history": "./modules/history.scss",
+    "./scss/keyboard": "./modules/keyboard.scss",
+    "./scss/manipulation": "./modules/manipulation.scss",
+    "./scss/mousewheel": "./modules/mousewheel.scss",
+    "./scss/navigation": "./modules/navigation.scss",
+    "./scss/pagination": "./modules/pagination.scss",
+    "./scss/parallax": "./modules/parallax.scss",
+    "./scss/scrollbar": "./modules/scrollbar.scss",
+    "./scss/thumbs": "./modules/thumbs.scss",
+    "./scss/virtual": "./modules/virtual.scss",
+    "./scss/zoom": "./modules/zoom.scss",
+    "./element": {
+      "types": "./swiper-element.d.ts",
+      "default": "./swiper-element.mjs"
+    },
+    "./element/bundle": {
+      "types": "./swiper-element.d.ts",
+      "default": "./swiper-element-bundle.mjs"
+    },
+    "./element-bundle": {
+      "types": "./swiper-element.d.ts",
+      "default": "./swiper-element-bundle.mjs"
+    },
+    "./element/css/a11y": "./modules/a11y-element.css",
+    "./element/css/autoplay": "./modules/autoplay-element.css",
+    "./element/css/controller": "./modules/controller-element.css",
+    "./element/css/effect-coverflow": "./modules/effect-coverflow-element.css",
+    "./element/css/effect-cube": "./modules/effect-cube-element.css",
+    "./element/css/effect-fade": "./modules/effect-fade-element.css",
+    "./element/css/effect-flip": "./modules/effect-flip-element.css",
+    "./element/css/effect-creative": "./modules/effect-creative-element.css",
+    "./element/css/effect-cards": "./modules/effect-cards-element.css",
+    "./element/css/free-mode": "./modules/free-mode-element.css",
+    "./element/css/grid": "./modules/grid-element.css",
+    "./element/css/hash-navigation": "./modules/hash-navigation-element.css",
+    "./element/css/history": "./modules/history-element.css",
+    "./element/css/keyboard": "./modules/keyboard-element.css",
+    "./element/css/manipulation": "./modules/manipulation-element.css",
+    "./element/css/mousewheel": "./modules/mousewheel-element.css",
+    "./element/css/navigation": "./modules/navigation-element.css",
+    "./element/css/pagination": "./modules/pagination-element.css",
+    "./element/css/parallax": "./modules/parallax-element.css",
+    "./element/css/scrollbar": "./modules/scrollbar-element.css",
+    "./element/css/thumbs": "./modules/thumbs-element.css",
+    "./element/css/virtual": "./modules/virtual-element.css",
+    "./element/css/zoom": "./modules/zoom-element.css",
+    "./react": {
+      "types": "./swiper-react.d.ts",
+      "default": "./swiper-react.mjs"
+    },
+    "./vue": {
+      "types": "./swiper-vue.d.ts",
+      "default": "./swiper-vue.mjs"
+    },
+    "./modules": {
+      "types": "./types/modules/index.d.ts",
+      "default": "./modules/index.mjs"
+    },
+    "./types": "./types/index.d.ts",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "modules": [
+        "./types/modules/index.d.ts"
+      ],
+      "element": [
+        "./swiper-element.d.ts"
+      ],
+      "element/bundle": [
+        "./swiper-element.d.ts"
+      ],
+      "react": [
+        "./swiper-react.d.ts"
+      ],
+      "vue": [
+        "./swiper-vue.d.ts"
+      ]
+    }
   },
   "repository": {
     "type": "git",
@@ -42,6 +181,7 @@
     "carousel",
     "gallery",
     "plugin",
+    "react",
     "vue",
     "slideshow"
   ],
@@ -54,7 +194,7 @@
   "funding": [
     {
       "type": "patreon",
-      "url": "https://www.patreon.com/vladimirkharlampidi"
+      "url": "https://www.patreon.com/swiperjs"
     },
     {
       "type": "open_collective",
@@ -64,46 +204,5 @@
   "engines": {
     "node": ">= 4.7.0"
   },
-  "devDependencies": {
-    "@babel/cli": "^7.22.9",
-    "@babel/core": "^7.22.9",
-    "@babel/preset-env": "^7.22.9",
-    "@babel/preset-react": "^7.22.5",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-replace": "^5.0.2",
-    "@types/react": "^18.2.14",
-    "@vitejs/plugin-vue": "^4.2.3",
-    "all-contributors-cli": "^6.26.0",
-    "autoprefixer": "^10.4.14",
-    "chalk": "^5.3.0",
-    "clean-css": "^5.3.2",
-    "concurrently": "^8.2.0",
-    "conventional-changelog-cli": "^2.2.2",
-    "cross-env": "^7.0.3",
-    "elapsed-time-logger": "^1.1.7",
-    "eslint": "^8.44.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "exec-sh": "^0.4.0",
-    "fs-extra": "^11.1.1",
-    "globby": "^13.2.1",
-    "inquirer": "^9.2.7",
-    "less": "^4.1.3",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.24",
-    "prettier": "^2.8.8",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rimraf": "^5.0.1",
-    "rollup": "^3.26.0",
-    "ssr-window": "^4.0.2",
-    "terser": "^5.18.2",
-    "vite": "^4.3.9",
-    "vue": "^3.3.4"
-  }
+  "releaseDate": "September 21, 2023"
 }
